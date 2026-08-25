@@ -1,0 +1,448 @@
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #050609;
+
+    color: white;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+/* =========================
+   МЕНЮ
+========================= */
+
+#menu {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #151923 0%,
+            #07080c 45%,
+            #020204 100%
+        );
+
+    overflow: hidden;
+}
+
+
+.menu-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    width: 90%;
+
+    max-width: 600px;
+}
+
+
+.small-title {
+
+    color: #777b86;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+}
+
+
+h1 {
+
+    margin: 0;
+
+    font-size: clamp(42px, 11vw, 90px);
+
+    line-height: .85;
+
+    letter-spacing: 4px;
+
+    font-weight: 900;
+
+    text-shadow:
+        3px 3px 0 #111,
+        -1px -1px 0 #333;
+
+}
+
+
+.line {
+
+    width: 100px;
+
+    height: 1px;
+
+    background: #777;
+
+    margin: 35px auto;
+}
+
+
+.menu-content p {
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    letter-spacing: 3px;
+
+}
+
+
+#startButton {
+
+    margin-top: 40px;
+
+    padding: 16px 55px;
+
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid #666;
+
+    font-size: 14px;
+
+    letter-spacing: 5px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+
+#startButton:active {
+
+    background: white;
+
+    color: black;
+
+}
+
+
+.version {
+
+    position: absolute;
+
+    bottom: 20px;
+
+    right: 25px;
+
+    color: #444;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   GAME
+========================= */
+
+#game {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: black;
+
+    overflow: hidden;
+}
+
+
+canvas {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: block;
+}
+
+
+/* =========================
+   HUD
+========================= */
+
+#hud {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 20px;
+
+    right: 20px;
+
+    z-index: 10;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    pointer-events: none;
+}
+
+
+.floor,
+.time {
+
+    color: #b9bbc1;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    text-shadow: 0 2px 5px black;
+}
+
+
+/* =========================
+   CROSSHAIR
+========================= */
+
+#crosshair {
+
+    position: absolute;
+
+    z-index: 10;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    color: #aaa;
+
+    font-size: 14px;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   JOYSTICK
+========================= */
+
+#joystick {
+
+    position: absolute;
+
+    z-index: 20;
+
+    bottom: 35px;
+
+    left: 30px;
+
+    width: 110px;
+
+    height: 110px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.04);
+
+    border: 1px solid rgba(255,255,255,.15);
+}
+
+
+#joystickStick {
+
+    position: absolute;
+
+    left: 35px;
+
+    top: 35px;
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.15);
+
+    border: 1px solid rgba(255,255,255,.25);
+}
+
+
+/* =========================
+   LOOK AREA
+========================= */
+
+#lookArea {
+
+    position: absolute;
+
+    z-index: 15;
+
+    right: 0;
+
+    top: 0;
+
+    width: 65%;
+
+    height: 100%;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+#flashlight,
+#interact {
+
+    position: absolute;
+
+    z-index: 30;
+
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,.45);
+
+    color: white;
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    font-size: 20px;
+}
+
+
+#flashlight {
+
+    bottom: 45px;
+
+    right: 30px;
+}
+
+
+#interact {
+
+    bottom: 120px;
+
+    right: 30px;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+#message {
+
+    position: absolute;
+
+    z-index: 40;
+
+    bottom: 180px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 90%;
+
+    text-align: center;
+
+    color: #ddd;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    opacity: 0;
+
+    transition: opacity .4s;
+
+    text-shadow: 0 2px 8px black;
+}
+
+
+/* =========================
+   NOISE
+========================= */
+
+.menu-noise {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .08;
+
+    pointer-events: none;
+
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            #fff 3px
+        );
+
+    animation: noise .15s infinite;
+}
+
+
+@keyframes noise {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2px);
+    }
+
+    100% {
+        transform: translateY(2px);
+    }
+
+}
