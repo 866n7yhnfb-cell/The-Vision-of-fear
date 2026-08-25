@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <title>The Vision of Fear</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ГЛАВНОЕ МЕНЮ -->
+    <div id="menu">
+
+        <div class="menu-noise"></div>
+
+        <div class="menu-content">
+
+            <div class="small-title">
+                A PSYCHOLOGICAL HORROR GAME
+            </div>
+
+            <h1>THE VISION<br>OF FEAR</h1>
+
+            <div class="line"></div>
+
+            <p>
+                SOMETIMES YOUR MIND<br>
+                IS THE MOST DANGEROUS PLACE.
+            </p>
+
+            <button id="startButton">
+                START
+            </button>
+
+        </div>
+
+        <div class="version">
+            DEMO 0.1
+        </div>
+
+    </div>
+
+
+    <!-- ИГРА -->
+    <div id="game">
+
+        <div id="crosshair">+</div>
+
+        <div id="hud">
+
+            <div class="floor">
+                FLOOR 01
+            </div>
+
+            <div class="time">
+                02:17 AM
+            </div>
+
+        </div>
+
+
+        <!-- МОБИЛЬНОЕ УПРАВЛЕНИЕ -->
+
+        <div id="joystick">
+
+            <div id="joystickStick"></div>
+
+        </div>
+
+        <div id="lookArea"></div>
+
+
+        <button id="flashlight">
+            🔦
+        </button>
+
+
+        <button id="interact">
+            E
+        </button>
+
+
+        <div id="message"></div>
+
+    </div>
+
+
+    <script src="game.js"></script>
+
+</body>
+</html>
